@@ -2,7 +2,7 @@
 
 // Dichiarazione Oggetti
 //var alunno = new Object();
-var alunno = {
+var alunno1 = {
     nome: 'Mario',
     cognome: 'Rossi'
 };
