@@ -3,16 +3,45 @@
   <head>
     <meta charset="utf-8">
     <title>Corso CIAPI BT</title>
+
+    <style>
+      .titolo {
+        color: #00ff00;
+      }
+
+
+      h2.titolo {
+        color: #0000ff;
+      }
+
+      .evidenzia {
+        background-color: green;
+      }
+
+      .primario .evidenzia {
+        background-color: yellow;
+      }
+
+    </style>
   </head>
   <body>
-    <h1 style="color: #0000ff;">Corso CIAPI BT</h1>
-    <h2 style="background-color: yellow; color: green;">Web e Grafica</h2>
-    <p>Argomenti:</p>
-    <ul>
-      <li>HTML5 e CSS</li>
+    <h1>Corso CIAPI BT</h1>
+    <h2 class="titolo">Web e Grafica</h2>
+    <h2 class="titolo2">Seconda Riga h2</h2>
+    <p class="titolo">Testo di prova con caratteri in <strong>grassetto</strong>. 
+      <br>
+      Argomenti:</p>
+    <ul class="primario">
+      <li>HTML5 e CSS<span class="evidenzia">testo</span> </li>
       <li>Template HTML</li>
-      <li>Wordpress</li>
-      <li>Plugins</li>
+      <li>Wordpress <span class="evidenzia">testo</span></li>
+      <li>Plugins <span class="evidenzia">testo</span></li>
+    </ul>
+    <ul>
+      <li>HTML5 e CSS<span class="evidenzia">testo</span> </li>
+      <li>Template HTML</li>
+      <li>Wordpress <span class="evidenzia">testo</span></li>
+      <li>Plugins <span class="evidenzia">testo</span></li>
     </ul>
   </body>
 </html>

@@ -43,6 +43,9 @@ var provSicilia = province.filter(function(item){
     return item.regione.toUpperCase() == 'SICILIA';
 });
 
+// Notazione con Arrow Function
+var provSicilia = province.filter( (item) => item.regione.toUpperCase() == 'SICILIA' );
+
 // Stampa tutti gli elementi dell'array filtrato
 console.log('\nStampa Province della SICILIA');
 logTop(provSicilia);
