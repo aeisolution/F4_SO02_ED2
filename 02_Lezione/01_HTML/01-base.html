@@ -10,7 +10,7 @@
       }
 
 
-      h2.titolo {
+      li .evidenzia {
         color: #0000ff;
       }
 
@@ -22,9 +22,21 @@
         background-color: yellow;
       }
 
+      li ul {
+        width: 300px;
+      }
+
+      li ul li {
+        line-height: 50px;
+      }
+
+      tr:first {
+
+      }
+
     </style>
   </head>
-  <body>
+  <body style="background-color: red;">
     <h1>Corso CIAPI BT</h1>
     <h2 class="titolo">Web e Grafica</h2>
     <h2 class="titolo2">Seconda Riga h2</h2>
@@ -34,7 +46,7 @@
     <ul class="primario">
       <li>HTML5 e CSS<span class="evidenzia">testo</span> </li>
       <li>Template HTML</li>
-      <li>Wordpress <span class="evidenzia">testo</span></li>
+      <li>Wordpress <p class="evidenzia">testo</p></li>
       <li>Plugins <span class="evidenzia">testo</span></li>
     </ul>
     <ul>

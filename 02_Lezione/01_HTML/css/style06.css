@@ -1,0 +1,60 @@
+/* Foglio di stile per pagina 06-layout.html */
+
+.container {
+    margin-top: 80px;
+    margin-bottom: 80px;
+    width: 100%;    
+}
+
+nav {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 80px;
+    background-color: #CCC;
+}
+
+nav ul {
+    list-style: none;
+
+}
+
+nav li {
+    line-height: 48px;
+    float: left;
+    min-width: 100px;
+    margin-left: 20px;
+    padding-right: 20px;
+    border-right: solid thin #fff;
+    text-align: center;
+}
+
+nav li:hover {
+    background-color: navy;
+}
+
+nav li a, nav li a:visited  {
+    text-decoration: none;
+    font-weight: bold;
+    color: #333;
+}
+
+nav li a:hover, nav li:hover a {
+    color: #fff;
+}
+
+/*
+section {
+    margin-right: 200px;
+}
+*/
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: yellow;
+    height: 80px;
+}
