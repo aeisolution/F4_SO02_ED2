@@ -23,5 +23,33 @@ module.exports = function(app) {
         var items = todoCtrl.getAll();
         res.send(items);
     });
+
+    // Singolo todo
+    app.get('/todos/:id', function(req,res){
+        var id = req.params.id || 0;
+        var item = todoCtrl.get(id);
+        res.send(item);
+    });
+
+    // Nuova attività
+    app.post('/todos', function(req, res){
+        var nome = req.body.nome;
+        console.log('req.body-------');
+        console.dir(req.body);
+        var obj = todoCtrl.post(nome);
+        res.status(201).send(obj);
+    });
+
+    // Cancellazione attività
+    app.delete('/todos/:id', function(req, res){
+        var id = req.params.id;
+        var result = todoCtrl.delete(id);
+        if(result) {
+            res.status(202).send('Record ' + id +  ' cancellato');
+        } else {
+            res.status(404).send('Record ' + id +  ' non trovato');
+        }
+    });
+
 }
 

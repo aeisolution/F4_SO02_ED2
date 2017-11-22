@@ -1,18 +1,49 @@
 <!DOCTYPE html>
 <html>
     <head>  
-        <title>Pagina Statica da express</title>
+        <title>WebApplication Todo</title>
+
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">        
+
         <link rel="stylesheet" href="css/main.css" >
     </head>
 <body>
 
-<h2>What Can JavaScript Do?</h2>
+    <h1>WebApp Todo</h1>
 
-<p id="demo">JavaScript can hide HTML elements.</p>
+    <div>
+        <label for="">Nome Attività</label>
+        <input id="nomeAttivita" type="text" />
+        <button type="button" onclick="inviaDati()"> Invia...</button>
+    </div>
 
-<button type="button" onclick="document.getElementById('demo').style.display='none'">Nascondi</button>
+    <hr />
 
-<button type="button" onclick="document.getElementById('demo').style.display='block'">Mostra</button>
+    <button type="button" onclick="caricaDati()"> Carica dati </button>
 
+    <!-- Creare Tabella con elenco Attività (todo) -->
+    <table id="tb_todos">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Attività</th>
+                <th>Evasa</th>
+                <th>Comandi</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <script src="js/main.js"></script>
 </body>
 </html> 

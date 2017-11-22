@@ -2,9 +2,16 @@
 
 // Utilizzo libreria Express
 var express = require('express'),
+    bodyParser = require('body-parser'),
+    logger = require('morgan'),
     app = express();
 
 var routes = require('./routes');
+
+// Configurazione Express con middlewares
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use(logger('dev'));
 
 // Gestione file statici
 app.use(express.static(__dirname + '/static'));
