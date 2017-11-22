@@ -11,13 +11,12 @@ function caricaDati() {
         url: '/todos',
         method: 'GET',
         success: function(data) {
+
             for(var i=0; i< data.length; i++) {
-                tbody.innerHTML += '<tr><td>' 
+                $('#tb_todos tbody').append('<tr><td>' 
                                     + data[i].id + '</td><td>'
                                     + data[i].nome + '</td><td>' 
-                                    + data[i].evasa + '</td><td>'
-                + '<button onclick="cancella(' + data[i].id + ')">cancella</button>' 
-                            + '</td></tr>';
+                                    + data[i].evasa + '</td></tr>');
             }
         }
     });
@@ -33,13 +32,10 @@ function inviaDati() {
             nome: nomeAttivita
         },
         success: function(data) {
-            var tb = document.getElementById('tb_todos');
-            var tbody = tb.getElementsByTagName('tbody')[0];
-            
-            tbody.innerHTML += '<tr><td>' 
+            $('#tb_todos tbody').append('<tr><td>' 
                                     + data.id + '</td><td>'
                                     + data.nome + '</td><td>' 
-                                    + data.evasa + '</td></tr>';   
+                                    + data.evasa + '</td></tr>');
         }
     });
 

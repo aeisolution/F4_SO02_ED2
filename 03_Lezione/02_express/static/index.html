@@ -13,32 +13,39 @@
     </head>
 <body>
 
-    <h1>WebApp Todo</h1>
+    <div class="container">
+        <h1>WebApp Todo</h1>
+        <div class="row">
+            <div class="form-inline">
+                <div class="form-group">
+                    <label>Nome Attività</label>
+                    <input id="nomeAttivita" class="form-control" type="text" />
+                </div>
 
-    <div>
-        <label for="">Nome Attività</label>
-        <input id="nomeAttivita" type="text" />
-        <button type="button" onclick="inviaDati()"> Invia...</button>
+                <button class="btn btn-default" type="button" onclick="inviaDati()"> Invia...</button>
+            </div>
+        </div>
+
+        <div class="row">
+            <button type="button" onclick="caricaDati()"> Carica dati </button>
+
+            <!-- Creare Tabella con elenco Attività (todo) -->
+            <table id="tb_todos" class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Attività</th>
+                        <th>Evasa</th>
+                        <th>Comandi</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
     </div>
 
-    <hr />
-
-    <button type="button" onclick="caricaDati()"> Carica dati </button>
-
-    <!-- Creare Tabella con elenco Attività (todo) -->
-    <table id="tb_todos">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Attività</th>
-                <th>Evasa</th>
-                <th>Comandi</th>
-            </tr>
-        </thead>
-        <tbody>
-
-        </tbody>
-    </table>
 
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
