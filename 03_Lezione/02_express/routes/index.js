@@ -34,10 +34,16 @@ module.exports = function(app) {
     // Nuova attività
     app.post('/todos', function(req, res){
         var nome = req.body.nome;
-        console.log('req.body-------');
-        console.dir(req.body);
         var obj = todoCtrl.post(nome);
         res.status(201).send(obj);
+    });
+
+    // PUT aggiornamento dati
+    app.put('/todos/:id', function(req, res){
+        var id = req.params.id;
+        var obj = req.body;
+        var item = todoCtrl.put(id, obj);
+        res.status(203).send(item);
     });
 
     // Cancellazione attività
