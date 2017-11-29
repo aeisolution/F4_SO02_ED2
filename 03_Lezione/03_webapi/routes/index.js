@@ -38,19 +38,24 @@ module.exports = function(app, db) {
     app.put('/todos/:id', function(req, res){
         var id = req.params.id;
         var obj = req.body;
-        var item = todoCtrl.put(id, obj);
-        res.status(203).send(item);
+        todoCtrl.put(id, obj, function(err, data){
+             if(err)
+                return res.status(500).send(err);
+
+            res.status(203).send(data);
+        });
     });
 
     // Cancellazione attività
     app.delete('/todos/:id', function(req, res){
         var id = req.params.id;
-        var result = todoCtrl.delete(id);
-        if(result) {
-            res.status(202).send('Record ' + id +  ' cancellato');
-        } else {
-            res.status(404).send('Record ' + id +  ' non trovato');
-        }
+        
+        todoCtrl.delete(id, function(err, data){
+            if(err)
+                return res.status(500).send(err);
+
+            res.status(203).send('Record ' + id +  ' cancellato');
+        });        
     });
 
 }

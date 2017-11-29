@@ -1,5 +1,7 @@
 // controllers/todoCtrl.js
 
+var ObjectID = require('mongodb').ObjectID;
+
 var Todo = require('../models/todo');
 
 // Emulazione Database con array in memoria
@@ -36,38 +38,22 @@ module.exports = function(db) {
     }
 
     // put - modifica di una attività esistente
-    this.put = function(id, item) {
-        var obj = {};
-        // Metodo 1
-        for(var i=0;i<todos.length; i++) {
-            if(todos[i].id == id) 
-                obj = todos[i];
-        }
+    this.put = function(id, item, cb) {
+        var filter = { _id: new ObjectID(id) };
 
-        //Modifica dati
-        obj.nome = item.nome;
-        obj.evasa = item.evasa;
+        var obj = {
+            nome: item.nome,
+            evasa: item.evasa
+        };
 
-        return obj;
+        self.todos.update(filter, { $set: obj }, cb);
     }
 
     // delete - cancellazione elemento in base a id
-    this.delete = function(id) {
-        var index = -1;
+    this.delete = function(id, cb) {
+        var filter = { _id: new ObjectID(id) };
 
-        for(var i=0; i<todos.length; i++) {
-            if(todos[i].id == id)
-                index = i;
-        }
-
-        console.log('index: ' + index);
-        if(index>-1) {
-            // Cancellare elemento da array (slice)
-            todos.splice(index, 1);
-            return true;
-        } else {
-            return false;
-        }
+        self.todos.remove(filter, cb)       
     }
 }
 

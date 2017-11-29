@@ -16,7 +16,7 @@ function creaRiga(data) {
     + '</div>'        
 
     + '<div class="btn_view"><button class="btn btn-default setEdit">modifica</button>'
-    + '<button class="btn btn-danger" onclick="cancella(' + data.id +  ')">cancella</button>'
+    + '<button class="btn btn-danger" onclick="cancella(\'' + data._id +  '\')">cancella</button>'
     + '</div>'    
     + '</td></tr>');
 }
