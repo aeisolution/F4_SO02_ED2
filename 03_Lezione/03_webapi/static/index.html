@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>  
+        <title>WebApplication Todo</title>
+
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">        
+
+        <link rel="stylesheet" href="css/main.css" >
+    </head>
+<body>
+
+    <div class="container">
+        <h1>WebApp Todo</h1>
+        <div class="row">
+            <div class="form-inline">
+                <div class="form-group">
+                    <label>Nome Attività</label>
+                    <input id="nomeAttivita" class="form-control" type="text" />
+                </div>
+
+                <button class="btn btn-default" type="button" onclick="inviaDati()"> Invia...</button>
+            </div>
+        </div>
+
+        <div class="row">
+            <button type="button" onclick="caricaDati()"> Carica dati </button>
+
+            <!-- Creare Tabella con elenco Attività (todo) -->
+            <table id="tb_todos" class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Attività</th>
+                        <th>Evasa</th>
+                        <th>Comandi</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <script src="js/main.js"></script>
+</body>
+</html> 

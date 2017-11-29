@@ -1,0 +1,24 @@
+
+/* Condizione normale della tabella */
+#tb_todos tr span,
+#tb_todos tr .btn_view {
+    display: block;
+}
+
+#tb_todos tr input,
+#tb_todos tr .btn_update {
+    display: none;
+}
+
+
+/* Condizione modifica dati tabella */
+#tb_todos tr.edit span,
+#tb_todos tr.edit .btn_view {
+    display: none;
+}
+
+#tb_todos tr.edit input,
+#tb_todos tr.edit .btn_update {
+    display: block;
+}
+

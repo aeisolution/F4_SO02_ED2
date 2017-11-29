@@ -2,8 +2,8 @@
 
 function creaRiga(data) {
         $('#tb_todos tbody').append('<tr><td>' 
-            + data.id 
-            + '<input name="id" type="hidden" value="' + data.id +'" /></td><td>'
+            + data._id 
+            + '<input name="id" type="hidden" value="' + data._id +'" /></td><td>'
             
             + '<span>' + data.nome + '</span>'
             + '<input name="nome" type="text" value="' + data.nome +'" /></td><td>'
@@ -82,7 +82,7 @@ function inviaDati() {
             nome: nomeAttivita
         },
         success: function(data) {
-            creaRiga(data);
+            creaRiga(data.ops[0]);
             initHandler();
         }
     });
