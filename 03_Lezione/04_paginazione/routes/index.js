@@ -7,15 +7,12 @@ module.exports = function(app, db) {
 
     // Elenco todos
     app.get('/todos', function(req, res){
-        var cerca = req.query.search || ''; 
-        console.log('cerca: ' +  cerca);
-
-        todoCtrl.getAll(cerca, function(err, data){
+        var cerca = req.query.search || '';
+        var page = req.query.page || 1; 
+        
+        todoCtrl.getAll(page, cerca, function(err, data){
             if(err)
                 return res.status(500).send(err);
-
-            console.log('data');
-            console.dir(data);
             
             res.send(data);
         });

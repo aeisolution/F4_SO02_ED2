@@ -1,4 +1,17 @@
 // Script di gestione index.html
+var page = 1;
+
+function pageNext() {
+    page++;
+    searchDati();
+}
+
+function pagePrevious() {
+    if(page>1) {
+        page--;
+        searchDati();
+    }
+}
 
 function creaRiga(data) {
         $('#tb_todos tbody').append('<tr><td>' 
@@ -55,15 +68,15 @@ function initHandler() {
 
 
 function searchDati() {
-    console.log('searchDati');
+
     $('#tb_todos tbody').html('');
 
     var cerca = $('#strCerca').val();
-    console.log('cerca: ' + cerca);
+
     
     // Connessione al server in modalità ajax
     $.ajax({
-        url: '/todos?search=' + cerca,
+        url: '/todos?search=' + cerca + '&page=' + page,
         method: 'GET',
         success: function(data) {
 

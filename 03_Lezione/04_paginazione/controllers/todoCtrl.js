@@ -20,15 +20,18 @@ module.exports = function(db) {
     this.todos = db.collection('todos');
 
     // getAll
-    this.getAll = function(query, cb) {
+    this.getAll = function(page, query, cb) {
+        var pageSize = 10;
+
         var filter = {};
         if(query.length>0)
             filter = { nome: { $regex: query, $options: 'i' } };
 
-        console.log('filter: ');
-        console.dir(filter);
         
-        self.todos.find(filter).toArray(cb);
+        self.todos.find(filter)
+                  .limit(pageSize)
+                  .skip(pageSize * (page - 1))
+                  .toArray(cb);
     }
 
     // get
