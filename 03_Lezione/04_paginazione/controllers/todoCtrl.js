@@ -34,6 +34,17 @@ module.exports = function(db) {
                   .toArray(cb);
     }
 
+    // count
+    this.count = function(query, cb) {
+        var filter = {};
+        if(query.length>0)
+            filter = { nome: { $regex: query, $options: 'i' } };
+
+        
+        self.todos.count(filter, cb);
+    }
+
+    
     // get
     this.get = function(id) {
         var items = todos.filter((elem) => elem.id == id);

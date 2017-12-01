@@ -1,15 +1,62 @@
 // Script di gestione index.html
-var page = 1;
+var _page = 1;
+var _count = 0;
+
+function refreshLabel(page) {
+    $('#labelPage').html(page);
+}
+
+function refreshBadge() {
+    var cerca = $('#strCerca').val();
+
+    $.ajax({
+        url: '/todos/count?search=' + cerca,
+        method: 'GET',
+        success: function(data) {
+            _count = data.count;
+            pagination();
+            $('#badgeDocuments').html(data.count);
+        }
+    });
+}
+
+function pagination() {
+    // Recupero tag li per precedente e successivo
+    var prev = $('.pagination li:first');
+    var next = $('.pagination li:last');
+
+    // Svuolto ul pagination
+    $('.pagination').html('');
+
+    // Aggiungo li precedente
+    $('.pagination').append(prev);
+
+    // Conteggio Pagine
+    var countPage =  Math.floor(_count/10);
+    if( _count % 10 > 0)
+        countPage += 1; 
+
+    // Inserimento li per singola pagina
+    for(var i=1; i<=countPage; i++) {
+        var obj = '<li><a href="#" onclick="searchDati(' + i + ')">' + i +'</a></li>';
+        $('.pagination').append(obj);
+    }
+
+    // Aggiungo li successivo
+    $('.pagination').append(next);
+                    
+    
+}
 
 function pageNext() {
-    page++;
-    searchDati();
+    _page++;
+    searchDati(_page);
 }
 
 function pagePrevious() {
-    if(page>1) {
-        page--;
-        searchDati();
+    if(_page>1) {
+        _page--;
+        searchDati(_page);
     }
 }
 
@@ -67,12 +114,17 @@ function initHandler() {
 
 
 
-function searchDati() {
+function searchDati(page) {
 
     $('#tb_todos tbody').html('');
 
     var cerca = $('#strCerca').val();
 
+    _page = page;
+    refreshLabel(page);   
+    
+    if(page==1) 
+        refreshBadge();
     
     // Connessione al server in modalità ajax
     $.ajax({
@@ -84,7 +136,7 @@ function searchDati() {
                 creaRiga(data[i]);
             }
 
-            initHandler();                    
+            initHandler();  
         }
     });
 }
@@ -99,6 +151,7 @@ function inviaDati() {
         },
         success: function(data) {
             creaRiga(data.ops[0]);
+            
             initHandler();
         }
     });
@@ -111,7 +164,7 @@ function cancella(id) {
         url: '/todos/' + id,
         method: 'DELETE',
         success: function(data) {
-            caricaDati();
+            searchDati(_page);
         },
         failure: function(data) {
             alert(data);

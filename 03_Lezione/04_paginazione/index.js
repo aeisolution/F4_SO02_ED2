@@ -9,6 +9,7 @@ var express = require('express'),
 var MongoClient = require('mongodb').MongoClient;
 
 var routes = require('./routes');
+var api = require('./routes/api');
 
 // Configurazione Express con middlewares
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -26,6 +27,7 @@ MongoClient.connect("mongodb://localhost:27017/todos2-db", function(err,db){
 
     // Routes
     routes(app, db);
+    api(app, db);
 
     // Middleware per pagina non trovata
     app.use(function(req, res){

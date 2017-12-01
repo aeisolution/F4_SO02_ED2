@@ -14,7 +14,7 @@
 <body>
 
     <div class="container">
-        <h1>WebApp Todo</h1>
+        <h1>WebApp Todo <span id="badgeDocuments" class="badge badge-success">0</span> </h1>
         <div class="row">
             <div class="form-inline">
                 <div class="form-group">
@@ -32,12 +32,13 @@
                 <div class="input-group pull-right">
                     <input id="strCerca" type="text" class="form-control" placeholder="Search for...">
                     <span class="input-group-btn">
-                        <button class="btn btn-default" onclick="searchDati()" type="button">Go!</button>
+                        <button class="btn btn-default" onclick="searchDati(1)" type="button">Go!</button>
                     </span>
                 </div><!-- /input-group -->                
             </div>
 
 
+           
             <!-- Paginazione -->
             <nav aria-label="Page navigation">
                 <ul class="pagination">
@@ -46,18 +47,17 @@
                         <span aria-hidden="true">&laquo;</span>
                     </a>
                     </li>
-                    <li><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
                     <li>
                     <a href="#" onclick="pageNext()" aria-label="Next">
                         <span aria-hidden="true">&raquo;</span>
                     </a>
                     </li>
                 </ul>
-            </nav>            
+            </nav>    
+            
+            <div class="col-xs-12">
+                Pagina: <span id="labelPage" class="label label-primary">0</span>
+            </div>
 
             <!-- Creare Tabella con elenco Attività (todo) -->
             <table id="tb_todos" class="table table-hover">
@@ -82,18 +82,13 @@
                         <span aria-hidden="true">&laquo;</span>
                     </a>
                     </li>
-                    <li><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
                     <li>
                     <a href="#" onclick="pageNext()" aria-label="Next">
                         <span aria-hidden="true">&raquo;</span>
                     </a>
                     </li>
                 </ul>
-            </nav>            
+            </nav>    
         </div>
     </div>
 
